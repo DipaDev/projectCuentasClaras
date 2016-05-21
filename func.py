@@ -86,18 +86,6 @@ def getGastosPorPantalla():
 
 	return gastos	
 
-#Pide al usuario que ingrese todos los gastos uno por uno
-#def getGastosPorPantalla():
-#	gastos = []
-#	print('A continuacion por favor, ingrese uno por uno los gastos a calcular, luego de ingresar cada uno presione ENTER, para finalizar el ingreso de datos, ingrese como importe \"0\"')
-#	while True:
-#		gasto = float(input('Ingrese el importe del gasto: '))
-#		
-#		if gasto == 0:
-#			break
-#		gastos.append(float(gasto))
-#
-#	return gastos
 
 def obtenerGastos():
 	return getGastosPorPantalla()
@@ -136,11 +124,3 @@ def obtenerSueldosPorcentuales(sueldos, porcentaje):
 
 	return sueldosPorcentuales
 
-
-#def mostrarCuantoPoneCadaUno(sueldos, porcentaje):
-#	sueldosPorcentuales = []
-#	for x in sueldos:
-#		sueldoPorcentual = (x/100) * porcentaje
-#		sueldosPorcentuales.append(sueldoPorcentual)
-#
-#	return sueldosPorcentuales
