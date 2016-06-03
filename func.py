@@ -68,7 +68,7 @@ def getGastosPorPantalla():
 		gasto = float(input('Ingrese el importe del gasto: '))
 
 		if gasto == 0:
-			print("Los sueldos ingresados son: ")
+			print("Los gastos ingresados son: ")
 			g = 1
 			while g <= len(gastos):
 				print("Gastos "+ str(g)+ " : "+str(gastos[g-1]))
@@ -106,8 +106,7 @@ def calculaPorcentaje(sueldos, gastos):
 		sueldosPorcentuales = obtenerSueldosPorcentuales(sueldos, porcentaje)
 		
 		excedenteGastos = gastosSumados-sumatoriaDePorcentuales
-		print(porcentaje)
-		
+				
 		if excedenteGastos<0.01:	
 			print("El porcentaje a aplicar de ambos sueldos es: %10.2f %%" %(porcentaje))
 			print("Del aporte de ambos sueldos sobrarian: $%10.2f " %(sumatoriaDePorcentuales-gastosSumados))
