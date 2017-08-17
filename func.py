@@ -57,20 +57,38 @@ def getSueldosDePantalla(cantidadDeSueldos):
 
 def obtenerSueldos():
 	return getSueldosDePantalla(getCantidadAportes())
-	
+
+
+
+
 
 #Pide al usuario que ingrese todos los gastos uno por uno
 def getGastosPorPantalla():
 	gastos = []
+	seguirIngresandoGastos = True
 	print('A continuacion por favor, ingrese uno por uno los gastos a calcular, luego de ingresar cada uno presione ENTER, para finalizar el ingreso de datos, ingrese como importe \"0\"')
-	while True:
+	while seguirIngresandoGastos:
 		gasto = float(input('Ingrese el importe del gasto: '))
-		
-		if gasto == 0:
-			break
-		gastos.append(float(gasto))
 
-	return gastos
+		if gasto == 0:
+			print("Los gastos ingresados son: ")
+			g = 1
+			while g <= len(gastos):
+				print("Gastos "+ str(g)+ " : "+str(gastos[g-1]))
+				g += 1
+			
+			conf = raw_input("¿Los gastos son correctos? (\"S\" = Si, \"N\" = No) ------>  ")
+			#conf = input("¿Es correcta? (\"S\" = Si, \"N\" = No) ------>  ") #Para Python 3
+
+			if conf.lower() in ['s', 'S']:
+				seguirIngresandoGastos = False
+
+		if seguirIngresandoGastos:		
+			gastos.append(float(gasto))
+
+
+	return gastos	
+
 
 def obtenerGastos():
 	return getGastosPorPantalla()
@@ -92,10 +110,11 @@ def calculaPorcentaje(sueldos, gastos):
 		
 		excedenteGastos = gastosSumados-sumatoriaDePorcentuales
 		#print(porcentaje)
-		
+	
+
 		if excedenteGastos<0.01:	
-			print("El porcentaje a aplicar de ambos sueldos es: %10.2f " %(porcentaje))
-			print("Del aporte de ambos sueldos sobrarian: %10.2f " %(sumatoriaDePorcentuales-gastosSumados))
+			print("El porcentaje a aplicar de ambos sueldos es: %10.2f %%" %(porcentaje))
+			print("Del aporte de ambos sueldos sobrarian: $%10.2f " %(sumatoriaDePorcentuales-gastosSumados))
 			break
 
 		porcentaje += 0.1
@@ -109,11 +128,3 @@ def obtenerSueldosPorcentuales(sueldos, porcentaje):
 
 	return sueldosPorcentuales
 
-
-#def mostrarCuantoPoneCadaUno(sueldos, porcentaje):
-#	sueldosPorcentuales = []
-#	for x in sueldos:
-#		sueldoPorcentual = (x/100) * porcentaje
-#		sueldosPorcentuales.append(sueldoPorcentual)
-#
-#	return sueldosPorcentuales
