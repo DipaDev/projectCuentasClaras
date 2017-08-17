@@ -37,12 +37,16 @@ def getSueldosDePantalla(cantidadDeSueldos):
 			sueldos.append(sueldoAIngresar)
 			i += 1
 
-		print("Los gastos ingresados son:)
-		g = 1
-		while g <= sueldos:
-			print("Sueldo "+ str(g)+ " : "+str(sueldos[g-1])
+		print("Los sueldos ingresados son: ")
 		
-		conf = raw_input("¿Los sueldos son correctos? (\"S\" = Si, \"N\" = No) ------>  ") #Para Python 2
+		g = 1
+		
+		while g <= len(sueldos):
+			print("Sueldo "+ str(g)+ " : "+str(sueldos[g-1]))
+			g += 1	
+		
+		#Para Python 2
+		conf = raw_input("¿Los sueldos son correctos? (\"S\" = Si, \"N\" = No) ------>  ") 
 		#conf = input("¿Es correcta? (\"S\" = Si, \"N\" = No) ------>  ") #Para Python 3
 
 		if conf.lower() in ['s', 'S']:
@@ -87,7 +91,7 @@ def calculaPorcentaje(sueldos, gastos):
 		sueldosPorcentuales = obtenerSueldosPorcentuales(sueldos, porcentaje)
 		
 		excedenteGastos = gastosSumados-sumatoriaDePorcentuales
-		print(porcentaje)
+		#print(porcentaje)
 		
 		if excedenteGastos<0.01:	
 			print("El porcentaje a aplicar de ambos sueldos es: %10.2f " %(porcentaje))
