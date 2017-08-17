@@ -132,7 +132,13 @@ def calculaPorcentaje(sueldos, gastos):
 
 		if excedenteGastos<0.01:	
 			print("El porcentaje a aplicar de ambos sueldos es: %10.2f %%" %(porcentaje))
+			
+			for x in sueldos:
+				print("Del sueldo con monto: "+str(x)+", serían $%10.2f" %((x/100)*porcentaje)) 
+			
+			
 			print("Del aporte de ambos sueldos sobrarian: $%10.2f " %(sumatoriaDePorcentuales-gastosSumados))
+			
 			break
 
 		porcentaje += 0.1
