@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 import func
 
+
 #MAIN
+
 func.mensajeBienvenida()
 
 sueldos = func.obtenerSueldos()
@@ -17,9 +19,6 @@ else:
 	print("Los sueldos no alcanzan para cubrir todos los gastos!")
 	print("El excedente de gastos es: %10.2f" %(gastosSumados - sueldosSumados))
 
-#Python 2
-raw_input("Presione cualquier tecla para SALIR")
-#Python 3
-#input("Presione cualquier tecla para SALIR")
+func.exitProgram()
 
 

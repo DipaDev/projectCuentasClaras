@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 
 #Muestra un mensaje de bienvenida para el usuario
+from colorama import Back, Fore, init
+init(autoreset=True)
 
 def mensajeBienvenida():
 	lenghtOfWelcomeMessage = 100
@@ -17,7 +19,7 @@ def mensajeBienvenida():
 	header = headerString.center(len(headerString)+2, " ").ljust(lenghtOfWelcomeMessage-2, " ").center(lenghtOfWelcomeMessage,"+")+"\n"
 	
 	welcomeMessage = "\n"+separatorLine+title+subtitle+header+separatorLine
-	print(welcomeMessage)
+	print(Back.RED + Fore.BLACK + welcomeMessage)
 	
 	
 #Pide al usuario que ingrese la cantidad de sueldos que van a cubrir los gastos
@@ -131,13 +133,13 @@ def calculaPorcentaje(sueldos, gastos):
 	
 
 		if excedenteGastos<0.01:	
-			print("El porcentaje a aplicar de ambos sueldos es: %10.2f %%" %(porcentaje))
+			print(Back.BLUE + Fore.BLACK + "El porcentaje a aplicar de ambos sueldos es: %10.2f %%" %(porcentaje))
 			
 			for x in sueldos:
-				print("Del sueldo con monto: "+str(x)+", serían $%10.2f" %((x/100)*porcentaje)) 
+				print(Back.GREEN + Fore.BLACK + "Del sueldo con monto: "+str(x)+", serían $%10.2f" %((x/100)*porcentaje)) 
 			
 			
-			print("Del aporte de ambos sueldos sobrarian: $%10.2f " %(sumatoriaDePorcentuales-gastosSumados))
+			print(Back.WHITE + Fore.BLACK + "Del aporte de ambos sueldos sobrarian: $%10.2f " %(sumatoriaDePorcentuales-gastosSumados))
 			
 			break
 
@@ -151,3 +153,14 @@ def obtenerSueldosPorcentuales(sueldos, porcentaje):
 		sueldosPorcentuales.append(sueldoPorcentual)
 
 	return sueldosPorcentuales
+	
+def exitProgram():
+	lenghtOfExitMessage = 100
+	separatorLine = "+".center(lenghtOfExitMessage,"+")+"\n"
+	exitString = "Presione la tecla ENTER para SALIR".title()
+	exitFormated = exitString.center(lenghtOfExitMessage-2," ").center(lenghtOfExitMessage,"+")+"\n"
+	exitMessage = "\n"+separatorLine+exitFormated+separatorLine
+	#Python 2
+	raw_input(exitMessage)
+	#Python 3
+	#input("Presione cualquier tecla para SALIR")
